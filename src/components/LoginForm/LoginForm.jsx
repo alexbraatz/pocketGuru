@@ -37,6 +37,7 @@ function LoginForm() {
           Username:
           <input
             type="text"
+            autocomplete="username"
             name="username"
             required
             value={username}
@@ -49,6 +50,7 @@ function LoginForm() {
           Password:
           <input
             type="password"
+            autocomplete="current-password"
             name="password"
             required
             value={password}

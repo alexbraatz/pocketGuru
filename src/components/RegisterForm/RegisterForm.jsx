@@ -32,9 +32,10 @@ function RegisterForm() {
           Username:
           <input
             type="text"
+            autocomplete="username"
             name="username"
-            value={username}
             required
+            value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
@@ -44,9 +45,10 @@ function RegisterForm() {
           Password:
           <input
             type="password"
+            autocomplete="current-password"
             name="password"
-            value={password}
             required
+            value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
