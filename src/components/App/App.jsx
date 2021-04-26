@@ -19,9 +19,9 @@ import './App.css';
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_USER' });
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch({ type: 'FETCH_USER' });
+  // }, [dispatch]);
 
   return (
     <Router>
