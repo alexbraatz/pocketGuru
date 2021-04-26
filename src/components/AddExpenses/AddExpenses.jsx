@@ -8,6 +8,7 @@ function AddExpenses() {
     const user = useSelector((store) => store.user);
 
     let guruUser;
+    let guruID;
 
     user ? guruUser = user.username : ""
 
