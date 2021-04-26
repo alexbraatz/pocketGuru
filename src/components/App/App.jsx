@@ -14,6 +14,13 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+import Food from '../Food/Food'
+import Shopping from '../Shopping/Shopping'
+import Savings from '../Savings/Savings'
+import Loans from '../Loans/Loans'
+import Shelter from '../Shelter/Shelter'
+import AddExpenses from '../AddExpenses/AddExpenses'
+
 import './App.css';
 
 function App() {
@@ -97,6 +104,31 @@ function App() {
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
+
+          <Route exact path="/food">
+            <Food />
+          </Route>
+
+          <Route exact path="/shopping">
+            <Shopping />
+          </Route>
+
+          <Route exact path="/savings">
+            <Savings />
+          </Route>
+
+          <Route exact path="/loans">
+            <Loans />
+          </Route>
+
+          <Route exact path="/shelter">
+            <Shelter />
+          </Route>
+
+          <Route exact path="/addexpenses">
+            <AddExpenses />
+          </Route>
+
           <Route>
             <h1>404</h1>
           </Route>

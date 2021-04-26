@@ -4,6 +4,11 @@ import {useSelector} from 'react-redux';
 import { HashRouter, Route, Link } from 'react-router-dom'
 
 import Food from '../Food/Food'
+import Shopping from '../Shopping/Shopping'
+import Savings from '../Savings/Savings'
+import Loans from '../Loans/Loans'
+import Shelter from '../Shelter/Shelter'
+import AddExpenses from '../AddExpenses/AddExpenses'
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -23,8 +28,40 @@ function UserPage() {
       <h2>Welcome to Pocket Guru, { capitalize(guruUser) }!</h2>
       <p>Your ID is: {user.id}</p>
       <HashRouter>
-        <Route>
-          <Food />
+
+        
+          <Link to={ { pathname: '/addexpenses' } }>
+            <button>Add new expenses</button>
+          </Link>
+
+        <Route >
+          <Link to={ { pathname: '/food' } }>
+            <Food />
+          </Link>
+        </Route>
+
+        <Route >
+          <Link to={ { pathname: '/shopping' } }>
+            <Shopping />
+          </Link>
+        </Route>
+
+        <Route >
+          <Link to={ { pathname: '/savings' } }>
+            <Savings />
+          </Link>
+        </Route>
+
+        <Route >
+          <Link to={ { pathname: '/loans' } }>
+            <Loans />
+          </Link>
+        </Route>
+
+        <Route >
+          <Link to={ { pathname: '/shelter' } }>
+            <Shelter />
+          </Link>
         </Route>
 
 

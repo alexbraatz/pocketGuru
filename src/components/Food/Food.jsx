@@ -3,7 +3,7 @@ import {Line} from 'react-chartjs-2'
 import './Food.css';
 
 function Food() {
-  const [chartData, setChartData] =useState({})
+  const [chartData, setChartData] = useState({})
 
   const chart = () => {
     setChartData({    
@@ -15,6 +15,7 @@ function Food() {
           backgroundColor: [
             'rgba( 75, 192, 192, 0.6)'
           ],
+          fill: true,
           borderWidth: 4
         }
       ]
@@ -22,14 +23,42 @@ function Food() {
     })
   }
 
+  const chartOptions = {
+    responsive: true,
+    title: {text: 'THICCNESS SCALE', display: true},
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            autoSkip: true,
+            maxTicksLimit: 10,
+            beginAtZero: true,
+          },
+          gridLines: {
+            display: false,
+          }
+        }
+      ],
+      xAxes: [
+        {
+          gridLines: {
+            display: false,
+          }
+        }
+      ]
+    }
+
+  }
+
   useEffect( ()=> {
     chart()
   }, [] )
+
   return(
     <div className="Food">
       <h1>Food Chart</h1>
-      <div>
-        <Line data={chartData}/>
+      <div style={{height: "500px", width: "500px"}}>
+        <Line data={chartData} options={ { title: { text: 'THICCNESS SCALE', display: true } } }/>
       </div>
     </div>
   )
