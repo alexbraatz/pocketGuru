@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import MultiSelect from "react-multi-select-component";
+import Select from 'react-select';
 
 function AddExpenses() {
 
@@ -13,6 +15,17 @@ function AddExpenses() {
         return name.charAt(0).toUpperCase() + name.slice(1)
     }
 
+    const [ expenseType, setExpenseType ] = useState( '' );
+
+    const typeOptions = [
+        { label: 'Food', value: 'Food'},
+        { label: 'Shopping', value: 'Shopping'},
+        { label: 'Savings', value: 'Savings'},
+        { label: 'Loans', value: 'Loans'},
+        { label: 'Shelter', value: 'Shelter'},
+
+    ];
+
     return(
         <div>
             <h2>Hey, {capitalize(guruUser)}, add your new expenses here!</h2>
@@ -20,11 +33,17 @@ function AddExpenses() {
             <form>
                 <div>
 
-                    <label>
+                    <div>
                         Type:
+                        <Select
+                            options={ typeOptions }
+                            value={ expenseType }
+                            onChange={ setExpenseType }
+                            labelledBy="Add-Expense-Type"
+                        />
 
-                    </label>
-                    
+                    </div>
+
                     <label htmlFor="expense">
                         Expense:
                         <input 
