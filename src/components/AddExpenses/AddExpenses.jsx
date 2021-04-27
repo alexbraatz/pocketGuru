@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import MultiSelect from "react-multi-select-component";
 import Select from 'react-select';
+import axios from 'axios';
 
 function AddExpenses() {
 
     const user = useSelector((store) => store.user);
+    const dispatch = useDispatch();
 
     let guruUser;
     let guruID;
 
-    user ? guruUser = user.username : ""
+    if ( user ) {
+        guruUser = user.username;
+        guruID = user.id;
+
+        console.log( 'guruUser', guruUser )
+        console.log( 'guruID', guruID )
+    }
 
     const capitalize = (name) => {
         return name.charAt(0).toUpperCase() + name.slice(1)
     }
 
     const [ expenseType, setExpenseType ] = useState( '' );
+    const [ expenseAmount, setExpenseAmount ] = useState( 0 )
+    const [ expenseDescription, setExpenseDescription ] = useState( '' );
 
     const typeOptions = [
         { label: 'Food', value: 'Food'},
@@ -27,9 +37,28 @@ function AddExpenses() {
 
     ];
 
+    const sendExpense = () => {
+
+        let newExpense = {
+            guru_id: guruID,
+            amount: Number( expenseAmount ),
+            descripton: expenseDescription,
+            expense_category: expenseType.value
+        }
+
+        dispatch( { type: 'SAVE_EXPENSE', payload: newExpense } )
+
+        axios.post( '/api/expense', newExpense ).then( ( response )=>{
+            console.log( 'back from sendExpense POST route:', response );
+        }).catch( error => {
+            console.log( 'error in sendExpense POST', error );
+        })
+
+    }
+
     return(
         <div>
-            <h2>Hey, {capitalize(guruUser)}, add your new expenses here!</h2>
+            <h2>Hey, {guruUser}, add your new expenses here!</h2>
 
             <form>
                 <div>
@@ -46,9 +75,10 @@ function AddExpenses() {
                     </div>
 
                     <label htmlFor="expense">
-                        Expense:
+                        Expense Description:
                         <input 
                             type="text"
+                            onChange={(event) => setExpenseDescription(event.target.value)}
                         />
                     </label>
 
@@ -56,12 +86,13 @@ function AddExpenses() {
                         Amount:
                         <input
                             type="integer"
+                            onChange={(event) => setExpenseAmount(event.target.value)}
                         />
                     </label>
                 </div>
                 <div>
                     <button>Cancel</button>
-                    <button>Submit</button>
+                    <button onClick={ (event) => sendExpense() }>Submit</button>
                 </div>
             </form>
         </div>
