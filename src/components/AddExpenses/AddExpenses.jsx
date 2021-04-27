@@ -42,7 +42,7 @@ function AddExpenses() {
         let newExpense = {
             guru_id: guruID,
             amount: Number( expenseAmount ),
-            descripton: expenseDescription,
+            description: expenseDescription,
             expense_category: expenseType.value
         }
 
