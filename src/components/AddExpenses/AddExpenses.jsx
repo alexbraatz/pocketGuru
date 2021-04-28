@@ -15,9 +15,6 @@ function AddExpenses() {
     if ( user ) {
         guruUser = user.username;
         guruID = user.id;
-
-        console.log( 'guruUser', guruUser )
-        console.log( 'guruID', guruID )
     }
 
     const capitalize = (name) => {
