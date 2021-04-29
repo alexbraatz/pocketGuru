@@ -20,7 +20,7 @@ function Food() {
   let userExpense = ['test']
 
   allExpenses.map( expense => {
-    if( expense.guru_id === user.id){
+    if( expense.guru_id === user.id && expense.expense_category == "Food"){
       userExpense.push( expense );
     }
   })
