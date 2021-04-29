@@ -8,9 +8,9 @@ import Shopping from '../Shopping/Shopping'
 import Savings from '../Savings/Savings'
 import Loans from '../Loans/Loans'
 import Shelter from '../Shelter/Shelter'
-import AddExpenses from '../AddExpenses/AddExpenses'
 
-import FoodDetails from '../FoodDetails/FoodDetails';
+import Capitalize from '../Capitalize/Capitalize'
+
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -21,13 +21,9 @@ function UserPage() {
   // allows us to initalize a variable w/username w/o errors if no one is logged in
   user ? guruUser = user.username : ""
 
-  const capitalize = (name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1)
-  }
-
   return (
     <div className="container">
-      <h2>Welcome to Pocket Guru, { capitalize(guruUser) }!</h2>
+      <h2>Welcome to Pocket Guru, { Capitalize(guruUser) }!</h2>
       <p>Your ID is: {user.id}</p>
       <HashRouter>
 

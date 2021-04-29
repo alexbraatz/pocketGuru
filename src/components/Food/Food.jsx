@@ -54,8 +54,6 @@ function Food() {
     })
   }
 
-
-
   // const chartOptions = {
   //   responsive: true,
   //   title: {text: 'THICCNESS SCALE', display: true},
@@ -92,7 +90,6 @@ function Food() {
           <Link to={'/fooddetails'}>
             <h1>Food Chart</h1>
           </Link>
-      <p>{ JSON.stringify(allExpenses)}</p>
       <p>{ JSON.stringify(userExpense)}</p>
       <p>{ JSON.stringify(user)}</p>
       <div style={{height: "500px", width: "500px"}}>
