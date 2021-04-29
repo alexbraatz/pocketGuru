@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Line} from 'react-chartjs-2'
+import {Doughnut, Line} from 'react-chartjs-2'
 import { useDispatch, useSelector } from 'react-redux';
 import './Food.css';
 
@@ -17,7 +17,9 @@ function Food() {
 
   const [chartData, setChartData] = useState({})
 
-  let userExpense = ['test']
+  let userExpense = []
+  let userDescriptions = []
+  let userAmounts = []
 
   allExpenses.map( expense => {
     if( expense.guru_id === user.id && expense.expense_category == "Food"){
@@ -25,13 +27,18 @@ function Food() {
     }
   })
 
+  userExpense.map( expense => {
+    userDescriptions.push( expense.description);
+    userAmounts.push( expense.amount );
+  })
+
   const chart = () => {
     setChartData({    
-      labels: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
+      labels: userDescriptions,
       datasets: [
         {
           label: 'level of thiccness',
-          data: [32, 45, 12, 76, 69],
+          data: userAmounts,
           backgroundColor: [
             'rgba( 75, 192, 192, 0.6)'
           ],
@@ -43,32 +50,32 @@ function Food() {
     })
   }
 
-  const chartOptions = {
-    responsive: true,
-    title: {text: 'THICCNESS SCALE', display: true},
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            autoSkip: true,
-            maxTicksLimit: 10,
-            beginAtZero: true,
-          },
-          gridLines: {
-            display: false,
-          }
-        }
-      ],
-      xAxes: [
-        {
-          gridLines: {
-            display: false,
-          }
-        }
-      ]
-    }
+  // const chartOptions = {
+  //   responsive: true,
+  //   title: {text: 'THICCNESS SCALE', display: true},
+  //   scales: {
+  //     yAxes: [
+  //       {
+  //         ticks: {
+  //           autoSkip: true,
+  //           maxTicksLimit: 10,
+  //           beginAtZero: true,
+  //         },
+  //         gridLines: {
+  //           display: false,
+  //         }
+  //       }
+  //     ],
+  //     xAxes: [
+  //       {
+  //         gridLines: {
+  //           display: false,
+  //         }
+  //       }
+  //     ]
+  //   }
 
-  }
+  // }
 
   useEffect( ()=> {
     chart()
@@ -81,7 +88,7 @@ function Food() {
       <p>{ JSON.stringify(userExpense)}</p>
       <p>{ JSON.stringify(user)}</p>
       <div style={{height: "500px", width: "500px"}}>
-        <Line data={chartData} options={ { title: { text: 'THICCNESS SCALE', display: true } } }/>
+        <Doughnut data={chartData} options={ { title: { text: 'THICCNESS SCALE', display: true } } }/>
       </div>
     </div>
   )
