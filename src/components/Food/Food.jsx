@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Doughnut, Line} from 'react-chartjs-2'
 import { useDispatch, useSelector } from 'react-redux';
+import Colors from '../ExpenseColors/ExpenseColors';
 import './Food.css';
 
 function Food() {
@@ -20,6 +21,7 @@ function Food() {
   let userExpense = []
   let userDescriptions = []
   let userAmounts = []
+  let userTotal = 0
 
   allExpenses.map( expense => {
     if( expense.guru_id === user.id && expense.expense_category == "Food"){
@@ -30,6 +32,7 @@ function Food() {
   userExpense.map( expense => {
     userDescriptions.push( expense.description);
     userAmounts.push( expense.amount );
+    userTotal += expense.amount
   })
 
   const chart = () => {
@@ -39,9 +42,7 @@ function Food() {
         {
           label: 'level of thiccness',
           data: userAmounts,
-          backgroundColor: [
-            'rgba( 75, 192, 192, 0.6)'
-          ],
+          backgroundColor: Colors,
           fill: true,
           borderWidth: 4
         }
@@ -89,6 +90,7 @@ function Food() {
       <p>{ JSON.stringify(user)}</p>
       <div style={{height: "500px", width: "500px"}}>
         <Doughnut data={chartData} options={ { title: { text: 'THICCNESS SCALE', display: true } } }/>
+        <p>Total Spent on Food: ${userTotal}</p>
       </div>
     </div>
   )
