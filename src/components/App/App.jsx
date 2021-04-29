@@ -111,29 +111,29 @@ function App() {
             <Food />
           </ProtectedRoute>
 
-          <Route exact path="/shopping">
+          <ProtectedRoute exact path="/shopping">
             <Shopping />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/savings">
+          <ProtectedRoute exact path="/savings">
             <Savings />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/loans">
+          <ProtectedRoute exact path="/loans">
             <Loans />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/shelter">
+          <ProtectedRoute exact path="/shelter">
             <Shelter />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/addexpenses">
+          <ProtectedRoute exact path="/addexpenses">
             <AddExpenses />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/fooddetails">
+          <ProtectedRoute exact path="/fooddetails">
             <FoodDetails />
-          </Route>
+          </ProtectedRoute>
 
           <Route>
             <h1>404</h1>
