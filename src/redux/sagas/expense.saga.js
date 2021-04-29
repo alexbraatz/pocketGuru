@@ -1,7 +1,7 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 import axios from "axios";
 
-function* fetchExpenses() {
+function* fetchAllExpenses() {
     try {
         const expenses = yield axios.get('/api/expense')
         yield put({ type: 'GET_EXPENSES', payload: expenses.data })
@@ -11,5 +11,5 @@ function* fetchExpenses() {
 }
 
 function* expensesSaga() {
-    yield 
+    yield takeEvery('FETCH_EXPENSES', fetchAllExpenses)
 }
