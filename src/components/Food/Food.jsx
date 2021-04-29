@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {Doughnut, Line} from 'react-chartjs-2'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
+
 import Colors from '../ExpenseColors/ExpenseColors';
+import FoodDetails from '../FoodDetails/FoodDetails';
 import './Food.css';
 
 function Food() {
@@ -51,6 +54,8 @@ function Food() {
     })
   }
 
+
+
   // const chartOptions = {
   //   responsive: true,
   //   title: {text: 'THICCNESS SCALE', display: true},
@@ -84,12 +89,14 @@ function Food() {
 
   return(
     <div className="Food">
-      <h1>Food Chart</h1>
+        <Link to={'/fooddetails'}>
+        <h1>Food Chart</h1>
+        </Link>
       <p>{ JSON.stringify(allExpenses)}</p>
       <p>{ JSON.stringify(userExpense)}</p>
       <p>{ JSON.stringify(user)}</p>
       <div style={{height: "500px", width: "500px"}}>
-        <Doughnut data={chartData} options={ }/>
+          <Doughnut data={chartData}/>
         <p>Total Spent on Food: ${userTotal}</p><br />
       </div>
     </div>

@@ -21,6 +21,8 @@ import Loans from '../Loans/Loans'
 import Shelter from '../Shelter/Shelter'
 import AddExpenses from '../AddExpenses/AddExpenses'
 
+import FoodDetails from '../FoodDetails/FoodDetails'
+
 import './App.css';
 
 function App() {
@@ -127,6 +129,10 @@ function App() {
 
           <Route exact path="/addexpenses">
             <AddExpenses />
+          </Route>
+
+          <Route exact path="/fooddetails">
+            <FoodDetails />
           </Route>
 
           <Route>

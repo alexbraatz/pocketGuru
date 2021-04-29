@@ -10,6 +10,8 @@ import Loans from '../Loans/Loans'
 import Shelter from '../Shelter/Shelter'
 import AddExpenses from '../AddExpenses/AddExpenses'
 
+import FoodDetails from '../FoodDetails/FoodDetails';
+
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
@@ -63,7 +65,6 @@ function UserPage() {
             <Shelter />
           </Link>
         </Route>
-
 
       </HashRouter>
 
