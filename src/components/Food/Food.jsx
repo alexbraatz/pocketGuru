@@ -6,13 +6,24 @@ import './Food.css';
 function Food() {
 
   const dispatch = useDispatch();
-  const allExpenses = useSelector(store => store.expenses);
-
-  const [chartData, setChartData] = useState({})
 
   useEffect(()=>{
     dispatch({ type: 'FETCH_EXPENSES' });
+    // userExpenses();
   }, []);
+
+  const allExpenses = useSelector(store => store.expenses);
+  const user = useSelector((store) => store.user)
+
+  const [chartData, setChartData] = useState({})
+
+  let userExpense = ['test']
+
+  allExpenses.map( expense => {
+    if( expense.guru_id === user.id){
+      userExpense.push( expense );
+    }
+  })
 
   const chart = () => {
     setChartData({    
@@ -67,6 +78,8 @@ function Food() {
     <div className="Food">
       <h1>Food Chart</h1>
       <p>{ JSON.stringify(allExpenses)}</p>
+      <p>{ JSON.stringify(userExpense)}</p>
+      <p>{ JSON.stringify(user)}</p>
       <div style={{height: "500px", width: "500px"}}>
         <Line data={chartData} options={ { title: { text: 'THICCNESS SCALE', display: true } } }/>
       </div>
