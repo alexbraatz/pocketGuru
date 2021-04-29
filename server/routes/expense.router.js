@@ -10,6 +10,16 @@ const router = express.Router();
 
 router.get('/', (req, res) =>{
 
+    const sqlCmd = `SELECT * FROM expenses`;
+    pool.query(sqlCmd)
+        .then( result => {
+            res.send( result.rows );
+        })
+        .catch( error => {
+            console.log( 'Error in GET expenses', error );
+            res.sendStatus(500)
+        })
+
 });
 
 router.post('/', (req, res) => {

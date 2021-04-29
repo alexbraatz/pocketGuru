@@ -1,4 +1,4 @@
-import { put } from "@redux-saga/core/effects";
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from "axios";
 
 function* fetchExpenses() {
@@ -8,4 +8,8 @@ function* fetchExpenses() {
     } catch {
         console.log( 'fetchExpenses generator error');
     }
+}
+
+function* expensesSaga() {
+    yield 
 }
