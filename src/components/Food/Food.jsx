@@ -89,8 +89,8 @@ function Food() {
       <p>{ JSON.stringify(userExpense)}</p>
       <p>{ JSON.stringify(user)}</p>
       <div style={{height: "500px", width: "500px"}}>
-        <Doughnut data={chartData} options={ { title: { text: 'THICCNESS SCALE', display: true } } }/>
-        <p>Total Spent on Food: ${userTotal}</p>
+        <Doughnut data={chartData} options={ }/>
+        <p>Total Spent on Food: ${userTotal}</p><br />
       </div>
     </div>
   )
