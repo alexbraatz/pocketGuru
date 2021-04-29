@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import {Line} from 'react-chartjs-2'
+import { useDispatch, useSelector } from 'react-redux';
 import './Food.css';
 
 function Food() {
+
+  const dispatch = useDispatch();
+  const allExpenses = useSelector(store => store.expenses);
+
   const [chartData, setChartData] = useState({})
+
+  useEffect(()=>{
+    dispatch({ type: 'FETCH_EXPENSES' });
+  }, []);
 
   const chart = () => {
     setChartData({    
@@ -57,6 +66,7 @@ function Food() {
   return(
     <div className="Food">
       <h1>Food Chart</h1>
+      <p>{ JSON.stringify(allExpenses)}</p>
       <div style={{height: "500px", width: "500px"}}>
         <Line data={chartData} options={ { title: { text: 'THICCNESS SCALE', display: true } } }/>
       </div>

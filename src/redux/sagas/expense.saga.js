@@ -13,3 +13,5 @@ function* fetchAllExpenses() {
 function* expensesSaga() {
     yield takeEvery('FETCH_EXPENSES', fetchAllExpenses)
 }
+
+export default expensesSaga;
