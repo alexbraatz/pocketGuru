@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import { Link } from 'react-router-dom'
 import MultiSelect from "react-multi-select-component";
 import Select from 'react-select';
 import axios from 'axios';
@@ -88,7 +89,9 @@ function AddExpenses() {
                     </label>
                 </div>
                 <div>
-                    <button>Cancel</button>
+                    <Link to={'/'}>
+                        <button>Cancel</button>
+                    </Link>
                     <button onClick={ (event) => sendExpense() }>Submit</button>
                 </div>
             </form>

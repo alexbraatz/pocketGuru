@@ -89,9 +89,9 @@ function Food() {
 
   return(
     <div className="Food">
-        <Link to={'/fooddetails'}>
-        <h1>Food Chart</h1>
-        </Link>
+          <Link to={'/fooddetails'}>
+            <h1>Food Chart</h1>
+          </Link>
       <p>{ JSON.stringify(allExpenses)}</p>
       <p>{ JSON.stringify(userExpense)}</p>
       <p>{ JSON.stringify(user)}</p>

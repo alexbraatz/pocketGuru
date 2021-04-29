@@ -107,9 +107,9 @@ function App() {
 
           {/* If none of the other routes matched, we will show a 404. */}
 
-          <Route exact path="/food">
+          <ProtectedRoute exact path="/food">
             <Food />
-          </Route>
+          </ProtectedRoute>
 
           <Route exact path="/shopping">
             <Shopping />
