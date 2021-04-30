@@ -137,9 +137,9 @@ function App() {
             <FoodDetails />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/editexpense">
-            <EditExpense />
-          </ProtectedRoute>
+          <Route exact path="/editexpense" component={EditExpense}/>
+            {/* <EditExpense />
+          </ProtectedRoute> */}
 
           <Route>
             <h1>404</h1>

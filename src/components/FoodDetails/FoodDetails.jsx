@@ -12,6 +12,8 @@ function FoodDetails() {
     const user = useSelector((store) => store.user)
     const dispatch = useDispatch();
 
+    const [editThisExpense, setThisExpenseToEdit ] = useState([])
+
     let userExpense = []
     let userDescriptions = []
     let userAmounts = []
@@ -70,8 +72,9 @@ function FoodDetails() {
                             <>
                                 <tr key={ expense.expense_id }>
                                     <td>{ expense.description }</td>
-                                    <td>${ expense.amount}</td>
-                                    <td><Link to={ { pathname: '/editexpense', editExpense: expense } }><button>Edit</button></Link></td>
+                                    <td> ${ expense.amount}</td>
+                                    <td><Link to={ { pathname: '/editexpense', expense: expense } }>
+                                        <button>Edit</button></Link></td>
                                     <td><button onClick={ (event) => deleteExpense(expense.expense_id)}>Delete</button></td>
                                 </tr>
                             </>
