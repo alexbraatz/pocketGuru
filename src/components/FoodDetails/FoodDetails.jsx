@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import Food from '../Food/Food';
 import Capitalize from '../Capitalize/Capitalize';
@@ -42,9 +43,10 @@ function FoodDetails() {
                     alert('Expense delete successfully.');
                     dispatch({ type: 'FETCH_EXPENSES' });
                 }
-            })
+            }).catch( error => {
+                res.sendStatus(500);
+        })
 
-        // dispatch({type:'DELETE_EXPENSE', paylod: expenseToDelete});
     }
 
     return (
@@ -69,7 +71,7 @@ function FoodDetails() {
                                 <tr key={ expense.expense_id }>
                                     <td>{ expense.description }</td>
                                     <td>${ expense.amount}</td>
-                                    <td><button>Edit</button></td>
+                                    <td><Link to={ { pathname: '/editexpense', editExpense: expense } }><button>Edit</button></Link></td>
                                     <td><button onClick={ (event) => deleteExpense(expense.expense_id)}>Delete</button></td>
                                 </tr>
                             </>

@@ -10,18 +10,8 @@ function* fetchAllExpenses() {
     }
 }
 
-function* deleteExpense(action) {
-    console.log('in deleteExpense generator action:', action)
-    try {
-        const deletedExpense = yield axios.delete('/api/expense')
-    } catch {
-        console.log( 'deleteExpense generator error');
-    }
-}
-
 function* expensesSaga() {
     yield takeEvery('FETCH_EXPENSES', fetchAllExpenses)
-    yield takeEvery('DELETE_EXPENSE', deleteExpense)
 }
 
 export default expensesSaga;
