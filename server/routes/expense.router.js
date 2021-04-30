@@ -45,7 +45,19 @@ router.delete('/', (req, res)=> {
         res.sendStatus(201);
     }).catch( error => {
         console.log( 'in expense.router DELETE error:', error );
-        res.sendStatus (500);
+        res.sendStatus(500);
+    })
+})
+
+router.put('/', (req, res)=>{
+    console.log( 'in expense.router PUT req.body:', req.body)
+    const sqlCmd = `UPDATE expenses SET amount = $4, description = $3 WHERE expense_id = $1 AND guru_id = $2`
+    pool.query( sqlCmd, [ req.body.expense_id, req.body.guru_id, req.body.amount, req.body.description ])
+    .then( result => {
+        res.sendStatus(201);
+    }).catch( error => {
+        console.log( 'in expens.route PUT error:', error );
+        res.sendStatus(500);
     })
 })
 

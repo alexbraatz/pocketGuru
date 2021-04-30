@@ -1,22 +1,40 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 function EditExpense(props) {
 
+    const dispatch = useDispatch();
+
     const [ editedExpense, setEditedExpense ] = useState( '' );
     const [ editedAmount, setEditedAmount ] = useState( 0 );
+
+    const sendEditedExpense = () => {
+
+        let expenseEdited = {
+            expense_id: props.location.expense.expense_id,
+            guru_id: props.location.expense.guru_id,
+            amount: editedExpense,
+            description: editedAmount
+        }
+
+        dispatch( {type: 'EDIT_EXPENSE', payload: expenseEdited});
+
+    }
 
     return(
         <>
             <h2>Edit Expense!</h2>
             <p>{JSON.stringify(props.location.expense)}</p>
+            <p>{JSON.stringify(props.location.expense.expense_id)}</p>
+            <p>{JSON.stringify(props.location.expense.guru_id)}</p>
 
             <div>
                 <label htmlFor="editexpense">
                     Edit Expense Description:
                     <input
                         type="text"
-                        onChange={ (event)=> setEditedAmount(event.target.value)}
+                        onChange={ (event)=> setEditedExpense(event.target.value)}
                     />
                 </label>
 
@@ -32,7 +50,7 @@ function EditExpense(props) {
                     <Link to={'/'}>
                         <button>Cancel</button>
                     </Link>
-                    <button>Sumbit</button>
+                    <button onClick={ (event) => sendEditedExpense() }>Sumbit</button>
                 </div>
             </div>
         </>

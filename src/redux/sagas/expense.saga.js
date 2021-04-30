@@ -10,8 +10,18 @@ function* fetchAllExpenses() {
     }
 }
 
+function* editExpense(action){
+    console.log('in edit recipe', action)
+    try {
+        const editedExpense = yield axios.put('/api/expense', action.payload)
+    } catch {
+        console.log( 'editExpense generator error')
+    }
+}
+
 function* expensesSaga() {
     yield takeEvery('FETCH_EXPENSES', fetchAllExpenses)
+    yield takeEvery('EDIT_EXPENSE', editExpense);
 }
 
 export default expensesSaga;
