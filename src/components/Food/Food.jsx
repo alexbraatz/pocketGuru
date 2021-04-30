@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import {Doughnut, Line} from 'react-chartjs-2'
+import {Doughnut } from 'react-chartjs-2'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 import Colors from '../ExpenseColors/ExpenseColors';
-import FoodDetails from '../FoodDetails/FoodDetails';
 import './Food.css';
 
 function Food() {

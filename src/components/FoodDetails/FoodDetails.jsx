@@ -69,10 +69,10 @@ function FoodDetails() {
                     </tr>
                 </thead>
                 <tbody>
-                    {userExpense.map( ( expense )=>{
+                    {userExpense.map( ( expense, i )=>{
                         return (
                             <>
-                                <tr key={ expense.expense_id }>
+                                <tr key={ i }>
                                     <td>{ expense.description }</td>
                                     <td> ${ expense.amount}</td>
                                     <td><Link to={ { pathname: '/editexpense', expense: expense } }>
