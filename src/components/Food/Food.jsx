@@ -35,7 +35,7 @@ function Food() {
   userExpense.map( expense => {
     userDescriptions.push( expense.description);
     userAmounts.push( expense.amount );
-    userTotal += expense.amount
+    userTotal += Number( expense.amount );
   })
 
   const chart = () => {
@@ -94,7 +94,7 @@ function Food() {
       <p>{ JSON.stringify(user)}</p>
       <div style={{height: "500px", width: "500px"}}>
           <Doughnut data={chartData}/>
-        <p>Total Spent on Food: ${userTotal}</p><br />
+        <p>Total Spent on Food: ${userTotal.toFixed(2)}</p><br />
       </div>
     </div>
   )

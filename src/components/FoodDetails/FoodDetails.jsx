@@ -28,8 +28,33 @@ function FoodDetails() {
     return (
         <>  
             <h2>{Capitalize(user.username)}'s Food Expenses</h2>
-            <Food />
-            <h3>Food </h3>
+            <Food /><br />
+            <h3>Food Details By Expense:</h3>
+            <p>{JSON.stringify(userExpense)}</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Expense</th>
+                        <th>Amount</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {userExpense.map( ( expense )=>{
+                        return (
+                            <>
+                                <tr key={ expense.id }>
+                                    <td>{ expense.description }</td>
+                                    <td>${ expense.amount}</td>
+                                    <td><button>Edit</button></td>
+                                    <td><button>Delete</button></td>
+                                </tr>
+                            </>
+                        )
+                    })}
+                </tbody>
+            </table>
         </>
     )
 }
