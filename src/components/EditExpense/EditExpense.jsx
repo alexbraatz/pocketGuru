@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 function EditExpense(props) {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const [ editedExpense, setEditedExpense ] = useState( '' );
     const [ editedAmount, setEditedAmount ] = useState( 0 );
@@ -19,15 +20,14 @@ function EditExpense(props) {
         }
 
         dispatch( {type: 'EDIT_EXPENSE', payload: expenseEdited});
-
+        dispatch({ type: 'FETCH_EXPENSES' });
+        
+        history.push('/fooddetails')
     }
 
     return(
         <>
             <h2>Edit Expense!</h2>
-            <p>{JSON.stringify(props.location.expense)}</p>
-            <p>{JSON.stringify(props.location.expense.expense_id)}</p>
-            <p>{JSON.stringify(props.location.expense.guru_id)}</p>
 
             <div>
                 <label htmlFor="editexpense">
@@ -47,7 +47,7 @@ function EditExpense(props) {
                 </label>
 
                 <div>
-                    <Link to={'/'}>
+                    <Link to={'/fooddetails'}>
                         <button>Cancel</button>
                     </Link>
                     <button onClick={ (event) => sendEditedExpense() }>Sumbit</button>

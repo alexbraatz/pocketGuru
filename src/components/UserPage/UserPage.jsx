@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useDispatch,useSelector} from 'react-redux';
 import { HashRouter, Route, Link } from 'react-router-dom'
 
 import Food from '../Food/Food'
@@ -13,6 +13,12 @@ import Capitalize from '../Capitalize/Capitalize'
 
 
 function UserPage() {
+
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch({ type: 'FETCH_EXPENSES' });
+  }, []);
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
 
@@ -34,31 +40,31 @@ function UserPage() {
 
         <Route >
           <Link to={ { pathname: '/food' } }>
-            <Food />
+            <Food /><br />
           </Link>
         </Route>
 
         <Route >
           <Link to={ { pathname: '/shopping' } }>
-            <Shopping />
+            <Shopping /><br />
           </Link>
         </Route>
 
         <Route >
           <Link to={ { pathname: '/savings' } }>
-            <Savings />
+            <Savings /><br />
           </Link>
         </Route>
 
         <Route >
           <Link to={ { pathname: '/loans' } }>
-            <Loans />
+            <Loans /><br />
           </Link>
         </Route>
 
         <Route >
           <Link to={ { pathname: '/shelter' } }>
-            <Shelter />
+            <Shelter /><br />
           </Link>
         </Route>
 

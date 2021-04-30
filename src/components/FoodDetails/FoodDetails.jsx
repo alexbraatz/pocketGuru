@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import Food from '../Food/Food';
@@ -12,7 +12,9 @@ function FoodDetails() {
     const user = useSelector((store) => store.user)
     const dispatch = useDispatch();
 
-    const [editThisExpense, setThisExpenseToEdit ] = useState([])
+    useEffect(()=>{
+        dispatch({type: 'FETCH_EXPENSES'});
+    },[]);
 
     let userExpense = []
     let userDescriptions = []

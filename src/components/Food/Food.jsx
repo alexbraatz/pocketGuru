@@ -90,8 +90,6 @@ function Food() {
           <Link to={'/fooddetails'}>
             <h1>Food Chart</h1>
           </Link>
-      <p>{ JSON.stringify(userExpense)}</p>
-      <p>{ JSON.stringify(user)}</p>
       <div style={{height: "500px", width: "500px"}}>
           <Doughnut data={chartData}/>
         <p>Total Spent on Food: ${userTotal.toFixed(2)}</p><br />
