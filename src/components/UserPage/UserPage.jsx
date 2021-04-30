@@ -69,7 +69,7 @@ function UserPage() {
         </Route>
 
       </HashRouter>
-
+      <br />
       <LogOutButton className="btn" />
     </div>
   );
