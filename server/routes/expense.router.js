@@ -37,4 +37,16 @@ router.post('/', (req, res) => {
     })
 });
 
+router.delete('/', (req, res)=> {
+    console.log( 'in expense.router DELETE req.body:', req.body )
+    const sqlCmd = `DELETE FROM expenses WHERE guru_id = $1 AND expense_id = $2`
+    pool.query( sqlCmd, [ req.body.guru_id, req.body.expense_id])
+    .then( result => {
+        res.sendStatus(201);
+    }).catch( error => {
+        console.log( 'in expense.router DELETE error:', error );
+        res.sendStatus (500);
+    })
+})
+
 module.exports = router

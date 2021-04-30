@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 import Food from '../Food/Food';
 import Capitalize from '../Capitalize/Capitalize';
+import axios from 'axios';
 
 function FoodDetails() {
 
@@ -27,16 +28,22 @@ function FoodDetails() {
         userTotal += expense.amount
     })
 
-    const deleteExpense = ( value ) => {
+    const deleteExpense = ( expenseID ) => {
 
-        console.log( value )
+        let expenseToDelete={
+            guru_id: user.id,
+            expense_id: expenseID
+        }
 
-        // let expenseToDelete={
-        //     guru_id: user.id,
-        //     expense_id: expense.id
-        // }
+        axios.delete('/api/expense', { data: expenseToDelete })
+            .then( response => {
+                console.log( 'in axios delete, response.data:', response );
+                if( response.data != null){
+                    alert('Expense delete successfully.');
+                }
+            })
 
-        // dispatch({type:'DELETE_EXPENSE', })
+        // dispatch({type:'DELETE_EXPENSE', paylod: expenseToDelete});
     }
 
     return (
@@ -60,7 +67,7 @@ function FoodDetails() {
                             <>
                                 <tr key={ expense.expense_id }>
                                     <td>{ expense.description }</td>
-                                    <td>${ expense.expense_id}</td>
+                                    <td>${ expense.amount}</td>
                                     <td><button>Edit</button></td>
                                     <td><button onClick={ (event) => deleteExpense(expense.expense_id)}>Delete</button></td>
                                 </tr>
