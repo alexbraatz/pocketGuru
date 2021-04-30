@@ -30,7 +30,7 @@ function UserPage() {
   return (
     <div className="container">
       <h2>Welcome to Pocket Guru, { Capitalize(guruUser) }!</h2>
-      <p>Your ID is: {user.id}</p>
+    
       <HashRouter>
 
         
