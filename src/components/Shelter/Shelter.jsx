@@ -80,7 +80,9 @@ function Shelter() {
 
     return (
         <div className="Shelter">
-            <h1>Shelter Chart</h1>
+            <Link to={'/shelterdetails'}>
+                <h1>Shelter Chart</h1>
+            </Link>
             <div style={{ height: "500px", width: "500px" }}>
                 <Doughnut data={chartData} />
                 <p>Total Spent on Shelter: ${userTotal.toFixed(2)}</p><br />

@@ -10,6 +10,7 @@ function Shopping() {
     const dispatch = useDispatch();
 
     useEffect(()=>{
+        chart()
         dispatch({ type: 'FETCH_EXPENSES' });
     }, []);
 
@@ -78,13 +79,11 @@ function Shopping() {
 
     // }
 
-    useEffect(() => {
-        chart()
-    }, [])
-
     return (
         <div className="Shopping">
-            <h1>Shopping Chart</h1>
+            <Link to={'/shoppingdetails'}>
+                <h1>Shopping Chart</h1>
+            </Link>
             <div style={{ height: "500px", width: "500px" }}>
                 <Doughnut data={chartData} />
                 <p>Total Spent on Shopping: ${userTotal.toFixed(2)}</p><br />

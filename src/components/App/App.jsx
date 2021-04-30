@@ -22,6 +22,11 @@ import Shelter from '../Shelter/Shelter'
 import AddExpenses from '../AddExpenses/AddExpenses'
 
 import FoodDetails from '../FoodDetails/FoodDetails'
+import ShelterDetails from '../ShelterDetails/ShelterDetails'
+import SavingsDetails from '../SavingsDetails/SavingsDetails'
+import LoansDetails from '../LoansDetails/LoansDetails'
+import ShoppingDetails from '../ShoppingDetails/ShoppingDetails'
+
 import EditExpense from '../EditExpense/EditExpense'
 
 import './App.css';
@@ -135,6 +140,22 @@ function App() {
 
           <ProtectedRoute exact path="/fooddetails">
             <FoodDetails />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/shelterdetails">
+            <ShelterDetails />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/savingsdetails">
+            <SavingsDetails />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/loanssdetails">
+            <LoansDetails />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/shoppingdetails">
+            <ShoppingDetails />
           </ProtectedRoute>
 
           <Route exact path="/editexpense" component={EditExpense}/>

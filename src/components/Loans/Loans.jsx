@@ -80,7 +80,9 @@ function Loans() {
 
     return (
         <div className="Loans">
-            <h1>Loans Chart</h1>
+            <Link to={'/loanssdetails'}>
+                <h1>Loans Chart</h1>
+            </Link>
             <div style={{ height: "500px", width: "500px" }}>
                 <Doughnut data={chartData} />
                 <p>Total Spent on Loans: ${userTotal.toFixed(2)}</p><br />

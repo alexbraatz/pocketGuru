@@ -22,7 +22,7 @@ function EditExpense(props) {
         dispatch( {type: 'EDIT_EXPENSE', payload: expenseEdited});
         dispatch({ type: 'FETCH_EXPENSES' });
         
-        history.push('/fooddetails')
+        history.push('/')
     }
 
     return(
@@ -47,7 +47,7 @@ function EditExpense(props) {
                 </label>
 
                 <div>
-                    <Link to={'/fooddetails'}>
+                    <Link to={'/'}>
                         <button>Cancel</button>
                     </Link>
                     <button onClick={ (event) => sendEditedExpense() }>Sumbit</button>

@@ -81,7 +81,9 @@ function Savings() {
 
     return (
         <div className="Savings">
-            <h1>Savings Chart</h1>
+            <Link to={'/savingsdetails'}>
+                <h1>Savings Chart</h1>
+            </Link>
             <div style={{ height: "500px", width: "500px" }}>
                 <Doughnut data={chartData} />
                 <p>Total In Savings: ${userTotal.toFixed(2)}</p><br />
