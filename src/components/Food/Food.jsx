@@ -11,8 +11,8 @@ function Food() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
+    chart()
     dispatch({ type: 'FETCH_EXPENSES' });
-    // userExpenses();
   }, []);
 
   const allExpenses = useSelector(store => store.expenses);
@@ -79,11 +79,7 @@ function Food() {
   //   }
 
   // }
-
-  useEffect( ()=> {
-    chart()
-  }, [] )
-
+  
   return(
     <div className="Food">
           <Link to={'/fooddetails'}>

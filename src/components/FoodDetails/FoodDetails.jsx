@@ -58,7 +58,6 @@ function FoodDetails() {
             <h2>{Capitalize(user.username)}'s Food Expenses</h2>
             <Food /><br />
             <h3>Food Details By Expense:</h3>
-            <p>{JSON.stringify(userExpense)}</p>
             <table>
                 <thead>
                     <tr>
