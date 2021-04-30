@@ -13,7 +13,7 @@ function* fetchAllExpenses() {
 function* deleteExpense(action) {
     console.log('in deleteExpense generator action:', action)
     try {
-        const deletedExpense = yield axios.delete('/api/expense' + action.payload.id, {data: action.payload} )
+        const deletedExpense = yield axios.delete('/api/expense')
     } catch {
         console.log( 'deleteExpense generator error');
     }
