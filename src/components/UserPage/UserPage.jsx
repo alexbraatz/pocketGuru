@@ -11,7 +11,6 @@ import Shelter from '../Shelter/Shelter'
 
 import Capitalize from '../Capitalize/Capitalize'
 
-import 'bulma/css/bulma.css'
 import '../MyStyles/mystyles.scss'
 
 function UserPage() {
@@ -31,7 +30,7 @@ function UserPage() {
 
   return (
     <div className="container">
-      <h2 class="title is-2 has-text-primary">Welcome to Pocket Guru, { Capitalize(guruUser) }!</h2>
+      <h2 class="title">Welcome to Pocket Guru, { Capitalize(guruUser) }!</h2>
     
       <HashRouter>
 
