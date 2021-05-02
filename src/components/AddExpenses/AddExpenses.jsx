@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import Select from 'react-select';
 import axios from 'axios';
 
+import 'bulma/css/bulma.css'
+
 function AddExpenses() {
 
     const user = useSelector((store) => store.user);
@@ -89,9 +91,18 @@ function AddExpenses() {
                 </div>
                 <div>
                     <Link to={'/'}>
-                        <button>Cancel</button>
+                        <button class="button is-link is-outlined">
+                    
+                                <span>Cancel</span>
+                            
+                        </button>
                     </Link>
-                    <button onClick={ (event) => sendExpense() }>Submit</button>
+                        <button class="button is-success" onClick={ (event) => sendExpense() }>
+                            <span class="icon is-small">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span>Save</span>
+                        </button>
                 </div>
             </form>
         </div>

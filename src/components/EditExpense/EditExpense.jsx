@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import 'bulma/css/bulma.css'
+
 function EditExpense(props) {
 
     const dispatch = useDispatch();

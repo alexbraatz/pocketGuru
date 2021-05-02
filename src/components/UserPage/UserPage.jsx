@@ -11,6 +11,7 @@ import Shelter from '../Shelter/Shelter'
 
 import Capitalize from '../Capitalize/Capitalize'
 
+import 'bulma/css/bulma.css'
 
 function UserPage() {
 
@@ -35,38 +36,52 @@ function UserPage() {
 
         
           <Link to={ { pathname: '/addexpenses' } }>
-            <button>Add new expenses</button>
+            <button class="button is-large is-link">Add new expenses</button>
           </Link>
 
-        <Route >
-          <Link to={ { pathname: '/food' } }>
-            <Food /><br />
-          </Link>
-        </Route>
+        <div class="columns">
+          <Route >
+            <Link to={ { pathname: '/food' } }>
+              <div class="column is mobile">
+                <Food /><br />
+              </div>
+            </Link>
+          </Route>
+        </div>
 
-        <Route >
-          <Link to={ { pathname: '/shopping' } }>
-            <Shopping /><br />
-          </Link>
-        </Route>
+        <div class="columns">
+          <Route >
+            <Link to={ { pathname: '/shopping' } }>
+              <div class="column">
+              <Shopping /><br />
+              </div>
+            </Link>
+          </Route>
+        </div>
 
-        <Route >
-          <Link to={ { pathname: '/savings' } }>
-            <Savings /><br />
-          </Link>
-        </Route>
+        <div class="column">
+          <Route >
+            <Link to={ { pathname: '/savings' } }>
+              <Savings /><br />
+            </Link>
+          </Route>
+        </div>
 
+        <div class="column">
         <Route >
           <Link to={ { pathname: '/loans' } }>
             <Loans /><br />
           </Link>
         </Route>
+        </div>
 
+        <div class="column">
         <Route >
           <Link to={ { pathname: '/shelter' } }>
             <Shelter /><br />
           </Link>
         </Route>
+        </div>
 
       </HashRouter>
       <br />

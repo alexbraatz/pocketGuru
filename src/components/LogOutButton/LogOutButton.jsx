@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import 'bulma/css/bulma.css'
+
 function LogOutButton(props) {
   const dispatch = useDispatch();
   return (

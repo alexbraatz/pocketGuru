@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 import Colors from '../ExpenseColors/ExpenseColors';
+import 'bulma/css/bulma.css'
 
 function Savings() {
 

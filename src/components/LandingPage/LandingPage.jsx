@@ -5,6 +5,8 @@ import './LandingPage.css';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 
+import 'bulma/css/bulma.css'
+
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
   const history = useHistory();

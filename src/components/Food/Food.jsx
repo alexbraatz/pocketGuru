@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import Colors from '../ExpenseColors/ExpenseColors';
 import './Food.css';
 
+import 'bulma/css/bulma.css'
+
 function Food() {
 
   const dispatch = useDispatch();

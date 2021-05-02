@@ -4,6 +4,8 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import {useSelector} from 'react-redux';
 
+import 'bulma/css/bulma.css'
+
 function Nav() {
   const user = useSelector((store) => store.user);
 

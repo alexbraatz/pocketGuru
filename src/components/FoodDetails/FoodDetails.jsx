@@ -6,6 +6,8 @@ import Food from '../Food/Food';
 import Capitalize from '../Capitalize/Capitalize';
 import axios from 'axios';
 
+import 'bulma/css/bulma.css'
+
 function FoodDetails() {
 
     const allExpenses = useSelector(store => store.expenses);
@@ -63,8 +65,8 @@ function FoodDetails() {
                     <tr>
                         <th>Expense</th>
                         <th>Amount</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,8 +77,15 @@ function FoodDetails() {
                                     <td>{ expense.description }</td>
                                     <td> ${ expense.amount}</td>
                                     <td><Link to={ { pathname: '/editexpense', expense: expense } }>
-                                        <button>Edit</button></Link></td>
-                                    <td><button onClick={ (event) => deleteExpense(expense.expense_id)}>Delete</button></td>
+                                        <button class="button is-info is-rounded">Edit</button></Link></td>
+                                    <td>
+                                        <button class="button is-danger is-outlined" onClick={ (event) => deleteExpense(expense.expense_id)}>
+                                        <span>Delete</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-times"></i>
+                                            </span>
+                                        </button>
+                                    </td>
                                 </tr>
                             </>
                         )

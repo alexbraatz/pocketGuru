@@ -6,6 +6,8 @@ import Shelter from '../Shelter/Shelter';
 import Capitalize from '../Capitalize/Capitalize';
 import axios from 'axios';
 
+import 'bulma/css/bulma.css'
+
 function ShelterDetails() {
 
     const allExpenses = useSelector(store => store.expenses);
@@ -75,8 +77,8 @@ function ShelterDetails() {
                                     <td>{ expense.description }</td>
                                     <td> ${ expense.amount}</td>
                                     <td><Link to={ { pathname: '/editexpense', expense: expense } }>
-                                        <button>Edit</button></Link></td>
-                                    <td><button onClick={ (event) => deleteExpense(expense.expense_id)}>Delete</button></td>
+                                        <button class="button is-info">Edit</button></Link></td>
+                                    <td><button class="button is-danger" onClick={ (event) => deleteExpense(expense.expense_id)}>Delete</button></td>
                                 </tr>
                             </>
                         )

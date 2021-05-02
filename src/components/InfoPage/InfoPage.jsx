@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bulma/css/bulma.css';
 
 // This is one of our simplest components
 // It doesn't have local state
