@@ -21,9 +21,9 @@ function Nav() {
   }
 
   return (
-    <div class="navbar" role="navigation" aria-label="main navigation" className="nav">
+    <div class="level" role="navigation" aria-label="main navigation" className="nav">
       
-      <div class="navbar-brand">
+      <div class="level-item">
         <Link to="/home">
           <h2 class="navbar-item" className="nav-title">Pocket Guru</h2>
         </Link>
@@ -33,7 +33,7 @@ function Nav() {
 
       <div class="navbar-start">
 
-        <div class="navbar-item">
+        <div class="level-item">
           <Link className="navLink" to="/about">
               About
           </Link>
@@ -45,13 +45,13 @@ function Nav() {
             </Link>
           </div>
 
-          <div class="navbar-item">
+          <div class="level-item">
             {user.id && (
               <>
                   <Link className="navLink" to="/info">
                     Info Page
                   </Link>
-                    <div class="navbar-item">
+                    <div class="level-item">
                       <LogOutButton className="navLink" />
                     </div>
               </>
