@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom'
 
 import Colors from '../ExpenseColors/ExpenseColors';
 
-import 'bulma/css/bulma.css'
+import '../MyStyles/mystyles.scss'
 
 function Shopping() {
 
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        chart()
         dispatch({ type: 'FETCH_EXPENSES' });
+        chart();
     }, []);
 
     const allExpenses = useSelector(store => store.expenses);
@@ -26,19 +26,27 @@ function Shopping() {
     let userAmounts = []
     let userTotal = 0
 
-    allExpenses.map( expense => {
-        if( expense.guru_id === user.id && expense.expense_category == "Shopping"){
-            userExpense.push( expense );
-        }
-    })
+    const getUserInfo = () => {
 
-    userExpense.map( expense => {
-        userDescriptions.push( expense.description);
-        userAmounts.push( expense.amount );
-        userTotal += Number( expense.amount );
-    })
+        allExpenses.map( expense => {
+            if( expense.guru_id === user.id && expense.expense_category == "Shopping"){
+                userExpense.push( expense );
+            }
+        })
+    
+        userExpense.map( expense => {
+            userDescriptions.push( expense.description);
+            userAmounts.push( expense.amount );
+            userTotal += Number( expense.amount );
+        })
+
+    }
+
+    getUserInfo();
 
     const chart = () => {
+        dispatch({ type: 'FETCH_EXPENSES' });
+
         setChartData({
             labels: userDescriptions,
             datasets: [

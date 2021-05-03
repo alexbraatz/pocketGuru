@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
 import {useSelector} from 'react-redux';
 
-import 'bulma/css/bulma.css'
+import './Nav.css';
+
+import '../MyStyles/mystyles.scss'
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -20,27 +21,44 @@ function Nav() {
   }
 
   return (
-    <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Pocket Guru</h2>
-      </Link>
-      <div>
-        <Link className="navLink" to={loginLinkData.path}>
-          {loginLinkData.text}
+    <div class="navbar" role="navigation" aria-label="main navigation" className="nav">
+      
+      <div class="navbar-brand">
+        <Link to="/home">
+          <h2 class="navbar-item" className="nav-title">Pocket Guru</h2>
         </Link>
+      </div>
 
-        {user.id && (
-          <>
-            <Link className="navLink" to="/info">
-              Info Page
+      <div class="navbar-menu">
+
+      <div class="navbar-start">
+
+        <div class="navbar-item">
+          <Link className="navLink" to="/about">
+              About
+          </Link>
+        </div>
+
+          <div class="navbar-item">
+            <Link className="navLink" to={loginLinkData.path}>
+              {loginLinkData.text}
             </Link>
-            <LogOutButton className="navLink" />
-          </>
-        )}
+          </div>
 
-        <Link className="navLink" to="/about">
-          About
-        </Link>
+          <div class="navbar-item">
+            {user.id && (
+              <>
+                  <Link className="navLink" to="/info">
+                    Info Page
+                  </Link>
+                    <div class="navbar-item">
+                      <LogOutButton className="navLink" />
+                    </div>
+              </>
+            )}
+          </div>
+
+        </div>
       </div>
     </div>
   );

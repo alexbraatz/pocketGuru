@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 
-import 'bulma/css/bulma.css'
+import '../MyStyles/mystyles.scss'
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.

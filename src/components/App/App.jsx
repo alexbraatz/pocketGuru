@@ -29,8 +29,7 @@ import ShoppingDetails from '../ShoppingDetails/ShoppingDetails'
 
 import EditExpense from '../EditExpense/EditExpense'
 
-import './App.css';
-import 'bulma/css/bulma.css'
+import '../MyStyles/mystyles.scss'
 
 function App() {
   const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Colors from '../ExpenseColors/ExpenseColors';
 import './Food.css';
 
-import 'bulma/css/bulma.css'
+import '../MyStyles/mystyles.scss'
 
 function Food() {
 
@@ -85,9 +85,9 @@ function Food() {
   return(
     <div className="Food">
           <Link to={'/fooddetails'}>
-            <h1>Food Chart</h1>
+            <h1 class="button is-large is-fullwidth is-primary is-hovered">Food Chart</h1>
           </Link>
-      <div style={{height: "500px", width: "500px"}}>
+      <div class="container is-widescreen" style={{height: "500px", width: "500px"}}>
           <Doughnut data={chartData}/>
         <p>Total Spent on Food: ${userTotal.toFixed(2)}</p><br />
       </div>

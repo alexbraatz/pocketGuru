@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import LoginPage from '../LoginPage/LoginPage';
 import {useSelector} from 'react-redux';
 
-import 'bulma/css/bulma.css'
+import '../MyStyles/mystyles.scss'
 
 // A Custom Wrapper Component -- This will keep our code DRY.
 // Responsible for watching redux state, and returning an appropriate component

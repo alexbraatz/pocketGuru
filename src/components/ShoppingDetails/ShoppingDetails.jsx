@@ -6,7 +6,7 @@ import Shopping from '../Shopping/Shopping';
 import Capitalize from '../Capitalize/Capitalize';
 import axios from 'axios';
 
-import 'bulma/css/bulma.css'
+import '../MyStyles/mystyles.scss'
 
 function FoodDetails() {
 
@@ -57,16 +57,16 @@ function FoodDetails() {
 
     return (
         <>  
-            <h2>{Capitalize(user.username)}'s Food Expenses</h2>
+            <h2>{Capitalize(user.username)}'s Shopping Expenses</h2>
             <Shopping /><br />
-            <h3>Food Details By Expense:</h3>
+            <h3>Shopping Details By Expense:</h3>
             <table>
                 <thead>
                     <tr>
                         <th>Expense</th>
                         <th>Amount</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

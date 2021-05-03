@@ -6,7 +6,7 @@ import Savings from '../Savings/Savings';
 import Capitalize from '../Capitalize/Capitalize';
 import axios from 'axios';
 
-import 'bulma/css/bulma.css'
+import '../MyStyles/mystyles.scss'
 
 function FoodDetails() {
 

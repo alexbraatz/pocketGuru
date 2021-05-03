@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Select from 'react-select';
 import axios from 'axios';
 
@@ -10,6 +10,7 @@ function AddExpenses() {
 
     const user = useSelector((store) => store.user);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     let guruUser;
     let guruID;
@@ -36,6 +37,10 @@ function AddExpenses() {
 
     ];
 
+    const goBack = () => {
+        history.goBack()
+    }
+
     const sendExpense = () => {
 
         let newExpense = {
@@ -45,12 +50,32 @@ function AddExpenses() {
             expense_category: expenseType.value
         }
 
-        dispatch( { type: 'SAVE_EXPENSE', payload: newExpense } )
+        axios.post( '/api/expense', newExpense )
+            .then( ( response )=>{
 
-        axios.post( '/api/expense', newExpense ).then( ( response )=>{
-            console.log( 'back from sendExpense POST route:', response );
-        }).catch( error => {
-            console.log( 'error in sendExpense POST', error );
+                alert('Success! Expense Added');
+                dispatch({ type: 'FETCH_EXPENSES' });
+
+                switch( newExpense.expense_category ) {
+                    case 'Food':
+                        history.push('/food');
+                        break;
+                    case 'Shopping':
+                        history.push('/shopping');
+                        break;
+                    case 'Savings':
+                        history.push('/savings');
+                        break;
+                    case 'Loans':
+                        history.push('/loans');
+                        break;
+                    case 'Shelter':
+                        history.push('/shelter');
+                        break;
+                }
+                
+            }).catch( error => {
+                console.log( 'error in sendExpense POST', error );
         })
 
     }

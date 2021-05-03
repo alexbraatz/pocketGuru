@@ -23,8 +23,14 @@ function EditExpense(props) {
 
         dispatch( {type: 'EDIT_EXPENSE', payload: expenseEdited});
         dispatch({ type: 'FETCH_EXPENSES' });
+
+        alert('success!')
         
         history.push('/')
+    }
+
+    const goBack = () => {
+        history.goBack();
     }
 
     return(
@@ -49,9 +55,8 @@ function EditExpense(props) {
                 </label>
 
                 <div>
-                    <Link to={'/'}>
-                        <button>Cancel</button>
-                    </Link>
+        
+                    <button onClick={ (event) => goBack() }>Cancel</button>
                     <button onClick={ (event) => sendEditedExpense() }>Sumbit</button>
                 </div>
             </div>

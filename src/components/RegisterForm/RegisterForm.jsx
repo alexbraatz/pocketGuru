@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import 'bulma/css/bulma.css'
+import '../MyStyles/mystyles.scss'
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
