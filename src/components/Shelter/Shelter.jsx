@@ -53,41 +53,14 @@ function Shelter() {
         })
     }
 
-    // const chartOptions = {
-    //     responsive: true,
-    //     title: { text: 'THICCNESS SCALE', display: true },
-    //     scales: {
-    //         yAxes: [
-    //             {
-    //                 ticks: {
-    //                     autoSkip: true,
-    //                     maxTicksLimit: 10,
-    //                     beginAtZero: true,
-    //                 },
-    //                 gridLines: {
-    //                     display: false,
-    //                 }
-    //             }
-    //         ],
-    //         xAxes: [
-    //             {
-    //                 gridLines: {
-    //                     display: false,
-    //                 }
-    //             }
-    //         ]
-    //     }
-
-    // }
-
     return (
         <div className="Shelter">
             <Link to={'/shelterdetails'}>
-                <h1>Shelter Chart</h1>
+                <h1 class="button is-large is-fullwidth is-primary is-hovered">Shelter Chart</h1>
             </Link>
-            <div style={{ height: "500px", width: "500px" }}>
+            <div class="container is-widescreen" style={{ height: "500px", width: "500px" }}>
                 <Doughnut data={chartData} />
-                <p>Total Spent on Shelter: ${userTotal.toFixed(2)}</p><br />
+                <p class="subtitle is-3">Total Spent on Shelter: ${userTotal.toFixed(2)}</p><br />
             </div>
         </div>
     )

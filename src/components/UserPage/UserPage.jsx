@@ -39,7 +39,7 @@ function UserPage() {
             <button class="button is-large is-link">Add new expenses</button>
           </Link>
 
-        <div class="columns">
+        <section class="section">
           <Route >
             <Link to={ { pathname: '/food' } }>
               <div class="column is mobile">
@@ -47,41 +47,41 @@ function UserPage() {
               </div>
             </Link>
           </Route>
-        </div>
+        </section>
 
-        <div class="columns">
+        <section class="section">
           <Route >
             <Link to={ { pathname: '/shopping' } }>
-              <div class="column">
+              <div class="column is mobile">
               <Shopping /><br />
               </div>
             </Link>
           </Route>
-        </div>
+        </section>
 
-        <div class="column">
+        <section class="section">
           <Route >
             <Link to={ { pathname: '/savings' } }>
               <Savings /><br />
             </Link>
           </Route>
-        </div>
+        </section>
 
-        <div class="column">
+        <section class="section">
         <Route >
           <Link to={ { pathname: '/loans' } }>
             <Loans /><br />
           </Link>
         </Route>
-        </div>
+        </section>
 
-        <div class="column">
+        <section class="section">
         <Route >
           <Link to={ { pathname: '/shelter' } }>
             <Shelter /><br />
           </Link>
         </Route>
-        </div>
+        </section>
 
       </HashRouter>
       <br />

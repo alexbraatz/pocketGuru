@@ -83,11 +83,11 @@ function Loans() {
     return (
         <div className="Loans">
             <Link to={'/loanssdetails'}>
-                <h1>Loans Chart</h1>
+                <h1 class="button is-large is-fullwidth is-primary is-hovered">Loans Chart</h1>
             </Link>
-            <div style={{ height: "500px", width: "500px" }}>
-                <Doughnut data={chartData} />
-                <p>Total Spent on Loans: ${userTotal.toFixed(2)}</p><br />
+            <div class="container is-widescreen" style={{ height: "500px", width: "500px" }}>
+                <Doughnut data={chartData} /><br />
+                <p class="subtitle is-3">Total Spent on Loans: ${userTotal.toFixed(2)}</p><br />
             </div>
         </div>
     )

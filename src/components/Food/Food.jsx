@@ -1,10 +1,10 @@
+import { arrayOf } from 'prop-types';
 import React, { useEffect, useState } from 'react'
 import {Doughnut } from 'react-chartjs-2'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 import Colors from '../ExpenseColors/ExpenseColors';
-import './Food.css';
 
 import '../MyStyles/mystyles.scss'
 
@@ -55,41 +55,14 @@ function Food() {
     })
   }
 
-  // const chartOptions = {
-  //   responsive: true,
-  //   title: {text: 'THICCNESS SCALE', display: true},
-  //   scales: {
-  //     yAxes: [
-  //       {
-  //         ticks: {
-  //           autoSkip: true,
-  //           maxTicksLimit: 10,
-  //           beginAtZero: true,
-  //         },
-  //         gridLines: {
-  //           display: false,
-  //         }
-  //       }
-  //     ],
-  //     xAxes: [
-  //       {
-  //         gridLines: {
-  //           display: false,
-  //         }
-  //       }
-  //     ]
-  //   }
-
-  // }
-  
   return(
     <div className="Food">
           <Link to={'/fooddetails'}>
             <h1 class="button is-large is-fullwidth is-primary is-hovered">Food Chart</h1>
           </Link>
       <div class="container is-widescreen" style={{height: "500px", width: "500px"}}>
-          <Doughnut data={chartData}/>
-        <p>Total Spent on Food: ${userTotal.toFixed(2)}</p><br />
+          <Doughnut data={chartData}/><br />
+        <p class="subtitle is-3">Total Spent on Food: ${userTotal.toFixed(2)}</p><br />
       </div>
     </div>
   )

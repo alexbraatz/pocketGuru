@@ -62,41 +62,14 @@ function Shopping() {
         })
     }
 
-    // const chartOptions = {
-    //     responsive: true,
-    //     title: { text: 'THICCNESS SCALE', display: true },
-    //     scales: {
-    //         yAxes: [
-    //             {
-    //                 ticks: {
-    //                     autoSkip: true,
-    //                     maxTicksLimit: 10,
-    //                     beginAtZero: true,
-    //                 },
-    //                 gridLines: {
-    //                     display: false,
-    //                 }
-    //             }
-    //         ],
-    //         xAxes: [
-    //             {
-    //                 gridLines: {
-    //                     display: false,
-    //                 }
-    //             }
-    //         ]
-    //     }
-
-    // }
-
     return (
         <div className="Shopping">
             <Link to={'/shoppingdetails'}>
-                <h1>Shopping Chart</h1>
+                <h1 class="button is-large is-fullwidth is-primary is-hovered">Shopping Chart</h1>
             </Link>
-            <div style={{ height: "500px", width: "500px" }}>
-                <Doughnut data={chartData} />
-                <p>Total Spent on Shopping: ${userTotal.toFixed(2)}</p><br />
+            <div class="container is-widescreen" style={{ height: "500px", width: "500px" }}>
+                <Doughnut data={chartData} /><br />
+                <p class="subtitle is-3">Total Spent on Shopping: ${userTotal.toFixed(2)}</p><br />
             </div>
         </div>
     )
