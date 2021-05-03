@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
 
-import 'bulma/css/bulma.css'
+import '../MyStyles/mystyles.scss'
 
 function LoginPage() {
   const history = useHistory();
@@ -13,6 +13,7 @@ function LoginPage() {
 
       <center>
         <button
+          class="button"
           type="button"
           className="btn btn_asLink"
           onClick={() => {

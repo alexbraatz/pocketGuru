@@ -65,8 +65,8 @@ function FoodDetails() {
                     <tr>
                         <th>Expense</th>
                         <th>Amount</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -78,7 +78,14 @@ function FoodDetails() {
                                     <td> ${ expense.amount}</td>
                                     <td><Link to={ { pathname: '/editexpense', expense: expense } }>
                                         <button class="button is-info">Edit</button></Link></td>
-                                    <td><button class="button is-danger" onClick={ (event) => deleteExpense(expense.expense_id)}>Delete</button></td>
+                                    <td>
+                                        <button class="button is-danger is-outlined" onClick={ (event) => deleteExpense(expense.expense_id)}>
+                                        <span>Delete</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-times"></i>
+                                            </span>
+                                        </button>
+                                    </td>
                                 </tr>
                             </>
                         )
