@@ -9,20 +9,26 @@ function LoginPage() {
 
   return (
     <div>
-      <LoginForm />
+      <section class="section-padding">
+        <LoginForm /><br />
+      </section>
 
-      <center>
-        <button
-          class="button"
-          type="button"
-          className="btn btn_asLink"
-          onClick={() => {
-            history.push('/registration');
-          }}
-        >
-          Register
-        </button>
-      </center>
+        <section class="section-padding">
+          <h4 class="subtitle">Need to Register?</h4>
+
+          <button
+            class="button"
+            type="button"
+            // className="btn btn_asLink"
+            onClick={() => {
+              history.push('/registration');
+            }}
+          >
+            Register
+          </button>
+
+        </section>
+
     </div>
   );
 }

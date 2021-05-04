@@ -27,42 +27,61 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form className="formPanel" onSubmit={login}>
+    <form class="container" className="formPanel" onSubmit={login}>
+
       <h2 class="title ">Login</h2>
+
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
         </h3>
       )}
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            autoComplete="username"
-            name="username"
-            required
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
+
+      <div class="tile is-parent">
+        <div class="field">
+          <label class="label">Username:</label>
+          <div class="control has-icons-left">
+              <input
+                class="input"
+                type="text"
+                placeholder="Username"
+                autoComplete="username"
+                name="username"
+                required
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+              />
+              <span class="icon is-small is-left">
+                <i class="fa fa-home"></i>
+              </span>
+              </div>
+        </div>
       </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            autoComplete="current-password"
-            name="password"
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
+      
+      <div class="tile is-parent">
+      <div class="field">
+        <label class="label" htmlFor="password">Password:</label>
+          <div class="control has-icons-left">
+            <input
+              class="input"
+              type="password"
+              placeholder="Password"
+              autoComplete="current-password"
+              name="password"
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
       </div>
+      </div>
+
       <div>
         <br />
-        <input class="button" className="btn" type="submit" name="submit" value="Log In" />
+        <input class="button" type="submit" name="submit" value="Log In" />
       </div>
     </form>
   );
