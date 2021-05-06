@@ -44,7 +44,6 @@ function LoanDetails() {
 
         axios.delete('/api/expense', { data: expenseToDelete })
             .then( response => {
-                console.log( 'in axios delete, response.data:', response );
                 if( response.data != null){
                     alert('Expense delete successfully.');
                     dispatch({ type: 'FETCH_EXPENSES' });

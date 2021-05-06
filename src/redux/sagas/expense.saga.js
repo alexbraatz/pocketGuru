@@ -11,7 +11,6 @@ function* fetchAllExpenses() {
 }
 
 function* editExpense(action){
-    console.log('in edit recipe', action)
     try {
         const editedExpense = yield axios.put('/api/expense', action.payload)
     } catch {
