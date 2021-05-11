@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>Alex was here.</p>
+        <p>Pocket Guru helps you see where your money is going to help manage spending habits</p>
       </div>
     </div>
   );
